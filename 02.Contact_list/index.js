@@ -1,9 +1,15 @@
 const express = require('express');
+const path = require('path');
 const port = 9000;
 const app = express();
 
+// Set up the EJS for views
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 app.get('/', function (req, res) {
-	res.send('<h1>WELCOME!! Home</h1>');
+	// console.log(__dirname);
+	return res.render('home');
 });
 app.listen(port, function (err) {
 	if (err) {

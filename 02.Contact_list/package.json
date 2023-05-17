@@ -1,12 +1,12 @@
 {
   "dependencies": {
+    "ejs": "^3.1.9",
     "express": "^4.18.2"
   },
   "name": "02.contact_list",
   "version": "1.0.0",
   "description": "creating a contact list to know express as framework",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
