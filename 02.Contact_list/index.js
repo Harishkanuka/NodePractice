@@ -9,7 +9,10 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function (req, res) {
 	// console.log(__dirname);
-	return res.render('home', { title: 'My Contacts List' });
+	return res.render('home', {
+		title: 'My Contacts List',
+		contact_list: contactList,
+	});
 });
 //controller for practice view
 app.get('/practice', function (req, res) {
@@ -17,6 +20,21 @@ app.get('/practice', function (req, res) {
 		title: 'my EJS Play ground',
 	});
 });
+
+var contactList = [
+	{
+		name: 'John',
+		phone: '123456687',
+	},
+	{
+		name: 'Smith',
+		phone: '123456789',
+	},
+	{
+		name: 'Harish',
+		phone: '988748634',
+	},
+];
 app.listen(port, function (err) {
 	if (err) {
 		console.log('error listening to port ' + err);
