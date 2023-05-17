@@ -9,7 +9,13 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function (req, res) {
 	// console.log(__dirname);
-	return res.render('home');
+	return res.render('home', { title: 'My Contacts List' });
+});
+//controller for practice view
+app.get('/practice', function (req, res) {
+	return res.render('practice', {
+		title: 'my EJS Play ground',
+	});
 });
 app.listen(port, function (err) {
 	if (err) {
