@@ -9,6 +9,9 @@ app.set('views', path.join(__dirname, 'views'));
 //Creating a middleware to handle encoding for that we are using parser which is express inbuit funtion
 app.use(express.urlencoded()); //This will encode data in object format
 
+//Creating a middleware for Static files
+app.use(express.static('assets'));
+/* 
 //Setting up our own middlewares
 //MiddleWARE 01
 app.use(function (req, res, next) {
@@ -21,6 +24,7 @@ app.use(function (req, res, next) {
 	console.log('Middleware2 is called');
 	next();
 });
+*/
 
 app.get('/', function (req, res) {
 	// console.log(__dirname);
@@ -34,6 +38,19 @@ app.get('/practice', function (req, res) {
 	return res.render('practice', {
 		title: 'my EJS Play ground',
 	});
+});
+
+//To delete a contact
+app.get('/delete-contact', function (req, res) {
+	//get query from url
+	let phone = req.query.phone;
+	let contactIndex = contactList.findIndex(
+		(contact) => contact.phone == phone
+	);
+	if (contactIndex != -1) {
+		contactList.splice(contactIndex, 1);
+	}
+	return res.redirect('back');
 });
 
 app.post('/create-contact', function (req, res) {

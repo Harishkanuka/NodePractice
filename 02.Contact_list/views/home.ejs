@@ -5,15 +5,32 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title><%= title %></title>
+		<!-- Including fontAwsome -->
+		<script
+			src="https://kit.fontawesome.com/6841dcb48e.js"
+			crossorigin="anonymous"
+		></script>
+		<!--Linking Css -->
+		<link rel="stylesheet" href="/css/home.css" />
 	</head>
 	<body>
-		<h1>My Contact List</h1>
-		<div>
+		<h1 id="page-heading">
+			<i class="fa-solid fa-address-card"></i>
+			My Contact List
+		</h1>
+		<div id="contact-list-container">
 			<ul>
 				<% for(let i of contact_list) { %>
 				<li>
-					<p><%= i.name %></p>
-					<p><%= i.phone %></p>
+					<div id="contact-details">
+						<p><%= i.name %></p>
+						<p><%= i.phone %></p>
+						<div id="delete-btn">
+							<a href="/delete-contact/?phone<%=i.phone%>">
+								<i class="fa-solid fa-user-xmark"></i>
+							</a>
+						</div>
+					</div>
 				</li>
 				<%}%>
 				<form action="/create-contact" method="POST">
@@ -33,5 +50,7 @@
 				</form>
 			</ul>
 		</div>
+		<!-- Linking Javascript -->
+		<script src="/js/index.js"></script>
 	</body>
 </html>
