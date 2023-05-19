@@ -21,6 +21,10 @@ app.get('/practice', function (req, res) {
 	});
 });
 
+app.post('/create-contact', function (req, res) {
+	return res.redirect('/practice');
+});
+
 var contactList = [
 	{
 		name: 'John',
