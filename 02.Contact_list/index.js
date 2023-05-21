@@ -1,6 +1,10 @@
 const express = require('express');
 const path = require('path');
 const port = 9000;
+
+//connecting database and express server
+const db = require('./config/mongoose.js');
+
 const app = express();
 
 // Set up the EJS for views
