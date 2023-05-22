@@ -44,19 +44,6 @@ app.get('/practice', function (req, res) {
 	});
 });
 
-//To delete a contact
-app.get('/delete-contact', function (req, res) {
-	//get query from url
-	let phone = req.query.phone;
-	let contactIndex = contactList.findIndex(
-		(contact) => contact.phone == phone
-	);
-	if (contactIndex != -1) {
-		contactList.splice(contactIndex, 1);
-	}
-	return res.redirect('back');
-});
-
 app.post('/create-contact', function (req, res) {
 	//append data into array
 	// contactList.push({
@@ -89,4 +76,19 @@ app.listen(port, function (err) {
 		console.log('error listening to port ' + err);
 	}
 	console.log('Yupp!!! Express Server listening on port ' + port);
+});
+//To delete a contact
+app.get('/delete-contact/', function (req, res) {
+	console.log(req.query);
+	let phone = req.query.phone;
+
+	let contactindex = contactList.findIndex(
+		(contact) => contact.phone == phone
+	);
+
+	if (contactindex != -1) {
+		contactList.splice(contactindex, 1);
+	}
+
+	return res.redirect('back');
 });

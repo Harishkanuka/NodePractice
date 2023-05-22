@@ -33,23 +33,18 @@
 					</div>
 				</li>
 				<%}%>
-				<form action="/create-contact" method="POST">
-					<input
-						type="text"
-						name="name"
-						placeholder="Enter Name"
-						required
-					/>
-					<input
-						type="number"
-						name="phone"
-						placeholder="Enter Number"
-						required
-					/>
-					<button type="submit">Add to contact</button>
-				</form>
 			</ul>
 		</div>
+		<form action="/create-contact" method="POST">
+			<input type="text" name="name" placeholder="Enter Name" required />
+			<input
+				type="number"
+				name="phone"
+				placeholder="Enter Number"
+				required
+			/>
+			<button type="submit">Add to contact</button>
+		</form>
 		<!-- Linking Javascript -->
 		<script src="/js/index.js"></script>
 	</body>
